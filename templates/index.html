@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Recipe Finder</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body class="index-page">
+  <div class="overlay">
+    <h1 class="app-title">🍳 Smart Recipe Finder</h1>
+    <p class="tagline">Find healthy and delicious recipes in seconds!</p>
+
+    <form method="POST" class="search-form">
+      <input type="text" name="ingredients" placeholder="Enter ingredients (e.g. chicken, tomato)" required>
+      <button type="submit">Find Recipes</button>
+    </form>
+
+    <div class="loader hidden">
+      <div class="spinner"></div>
+      <p>Cooking up some great recipes...</p>
+    </div>
+  </div>
+</body>
+</html>

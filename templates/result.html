@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="result-page">
+  <div class="overlay">
+    <h1 class="app-title">🍽️ Recipes with "{{ ingredients }}"</h1>
+
+    {% if recipes %}
+      <div class="recipe-gallery">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+          <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}">
+          <h2>{{ recipe.strMeal }}</h2>
+          <a href="{{ url_for('details', meal_id=recipe.idMeal) }}" class="view-btn">View Details</a>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="tip-box">
+        <h3>💡 Nutrition Tip</h3>
+        <p>{{ tip }}</p>
+      </div>
+
+    {% else %}
+      <p class="no-results">No recipes found for "{{ ingredients }}"</p>
+    {% endif %}
+
+    <a href="/" class="back-btn">🔙 Search Again</a>
+  </div>
+</body>
+</html>
